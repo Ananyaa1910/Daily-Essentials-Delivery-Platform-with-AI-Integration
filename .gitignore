@@ -10,3 +10,9 @@ build
 
 backup.jsx
 backup2.jsx
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
