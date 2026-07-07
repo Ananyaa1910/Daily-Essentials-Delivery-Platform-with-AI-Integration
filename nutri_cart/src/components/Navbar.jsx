@@ -38,16 +38,19 @@ export const Navbar = () => {
     setIsAiLoading(true);
 
     try {
-        const response = await fetch("http://localhost:8000/api/ai/recommend", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                query: aiQuery,
-                user_id: user?.id || "guest"
-            })
-        });
+        const response = await fetch(
+            `${import.meta.env.VITE_AI_SERVICE_URL}/api/ai/recommend`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    query: aiQuery,
+                    user_id: user?.id || "guest"
+                })
+            }
+        );
 
         const data = await response.json();
 
